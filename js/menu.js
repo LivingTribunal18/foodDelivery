@@ -1,4 +1,8 @@
-const renderItems = (items) => {};
+const renderItems = (items) => {
+  items.map((item) => {
+    console.log(item);
+  });
+};
 
 async function fetchPertners() {
   try {
