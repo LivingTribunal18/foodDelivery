@@ -6,6 +6,7 @@ const logInForm = document.querySelector("#logInForm");
 const inputLogin = document.querySelector("#login");
 const inputPassword = document.querySelector("#password");
 const username = document.querySelector(".user-name");
+const buttonCard = document.querySelector(".button-cart");
 const errors = document.querySelector(".errors");
 
 const login = (user) => {
@@ -14,6 +15,7 @@ const login = (user) => {
   errors.style.display = "none";
 
   btnLogout.style.display = "flex";
+  buttonCard.style.display = "flex";
   username.style.display = "flex";
 
   username.textContent = user.login;
@@ -23,6 +25,7 @@ const logout = () => {
   buttonAuth.style.display = "flex";
 
   btnLogout.style.display = "none";
+  buttonCard.style.display = "none";
   username.style.display = "none";
 
   username.textContent = "";
@@ -50,7 +53,7 @@ logInForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
   let user = {};
-  if (inputLogin.value && inputPassword.value) {
+  if (inputLogin.value.trim().length && inputPassword.value.trim().length) {
     user = {
       login: inputLogin.value,
       password: inputPassword.value,
